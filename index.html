@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript" >
+      function Personne (prenom, nom, age, genre, interets) {
+        this.nom = {
+          prenom,
+          nom;
+        };
+        this.age = age;
+        this.genre = genre;
+        this.interets = interets;
+      };
+
+      function Brick() {
+        this.largeur = 10;
+        this.longueur = 20;
+      }
+
+      var personne1 = new Personne('Bob', 'Smith', 32, 'homme', ['musique', 'ski']);
+
+      /*Personne.prototype.aurevoir = function() {
+        alert(this.nom + ' est sorti. Au revoir !');
+      }
+      */
+
+      Personne.prototype.saluer = function() {
+        alert('Salut! Je suis ' + this.nom.prenom + '.');
+      };
+
+
+      function Professeur (prenom, nom, age, genre, interets, matiere) {
+        // L'appel de la fonction call permet d'appeller la fonction Personne dans le contexte de Professeur
+        Personne.call(this, prenom, nom, age, genre, interets);
+        this.matiere = matiere;
+      }
+    </script>
+
+  </body>
+</html>
